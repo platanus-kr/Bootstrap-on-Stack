@@ -57,6 +57,9 @@
 	//add_image_size( 'name', width, height, crop true|false );
 
 	register_nav_menus(array('primary' => 'Primary Navigation'));
+	register_post_type( 'til' );
+	register_post_type( 'think' );
+	
 
 	/* ========================================================================================================================
 
