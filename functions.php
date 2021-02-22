@@ -57,8 +57,7 @@
 	//add_image_size( 'name', width, height, crop true|false );
 
 	register_nav_menus(array('primary' => 'Primary Navigation'));
-	register_post_type( 'til' );
-	register_post_type( 'think' );
+
 	
 
 	/* ========================================================================================================================
@@ -70,6 +69,19 @@
 	add_action( 'wp_enqueue_scripts', 'bootstrap_script_init' );
 
 	add_filter( 'body_class', array( 'BsWp', 'add_slug_to_body_class' ) );
+
+
+
+	// function custom_post_type( $args, $post_type ) {
+	// 	if ( $post_type == "animal-species" ) {
+	// 		$args['rewrite'] = array(
+	// 			'slug' => 'animal'
+	// 		);
+	// 	}
+	
+	// 	return $args;
+	// }
+	// add_filter( 'register_post_type_args', 'custom_post_type', 20, 2 );
 
 	/* ========================================================================================================================
 
@@ -179,6 +191,23 @@
 		}
 	}
 	add_action('init', 'disable_emojis');
+
+
+	function custom_post_type() {
+		register_post_type('custom_post_type',
+			array(
+				'labels'      => array(
+					'name'          => __('TIL', 'textdomain'),
+					'singular_name' => __('til', 'textdomain'),
+				),
+					'public'      => true,
+					'has_archive' => true,
+			)
+		);
+	}
+	add_action('init', 'custom_post_type');
+
+
 
 	// Filter out the tinymce emoji plugin.
 	function disable_emojis_tinymce($plugins) {
