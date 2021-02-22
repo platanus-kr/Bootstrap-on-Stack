@@ -195,38 +195,50 @@
 
 	function custom_post_type() {
 		$labels = array(
-			'name' => _x( 'Services', 'services' ),
-			'singular_name' => _x( 'services', 'services' ),
-			'add_new' => _x( 'Add New', 'services' ),
-			'add_new_item' => _x( 'Add New services', 'services' ),
-			'edit_item' => _x( 'Edit services', 'services' ),
-			'new_item' => _x( 'New services', 'services' ),
-			'view_item' => _x( 'View services', 'services' ),
-			'search_items' => _x( 'Search services', 'services' ),
-			'not_found' => _x( 'No services found', 'services' ),
-			'not_found_in_trash' => _x( 'No services found in Trash', 'services' ),
-			'parent_item_colon' => _x( 'Parent services:', 'services' ),
-			'menu_name' => _x( 'Services', 'services' ),
-			);
-			$args = array(
-			'labels' => $labels,
-			'hierarchical' => true,
-			'description' => 'Hi, this is my custom post type.',
-			'supports' => array( 'title', 'editor', 'excerpt', 'author', 'thumbnail', 'trackbacks', 'custom-fields', 'comments', 'revisions', 'page-attributes' ),
-			'taxonomies' => array( 'category', 'post_tag', 'page-category' ),
-			'public' => true,
-			'show_ui' => true,
-			'show_in_menu' => true,
-			'show_in_nav_menus' => true,
+			'name'                  => _x( 'TIL', 'Post type general name', 'til' ),
+			'singular_name'         => _x( 'til', 'Post type singular name', 'til' ),
+			'menu_name'             => _x( 'tils', 'Admin Menu text', 'til' ),
+			'name_admin_bar'        => _x( 'til', 'Add New on Toolbar', 'til' ),
+			'add_new'               => __( 'Add New', 'til' ),
+			'add_new_item'          => __( 'Add New til', 'til' ),
+			'new_item'              => __( 'New til', 'til' ),
+			'edit_item'             => __( 'Edit til', 'til' ),
+			'view_item'             => __( 'View til', 'til' ),
+			'all_items'             => __( 'All tils', 'til' ),
+			'search_items'          => __( 'Search tils', 'til' ),
+			'parent_item_colon'     => __( 'Parent tils:', 'til' ),
+			'not_found'             => __( 'No tils found.', 'til' ),
+			'not_found_in_trash'    => __( 'No tils found in Trash.', 'til' ),
+			'featured_image'        => _x( 'til Cover Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'til' ),
+			'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'til' ),
+			'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'til' ),
+			'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'til' ),
+			'archives'              => _x( 'til archives', 'The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4', 'til' ),
+			'insert_into_item'      => _x( 'Insert into til', 'Overrides the “Insert into post”/”Insert into page” phrase (used when inserting media into a post). Added in 4.4', 'til' ),
+			'uploaded_to_this_item' => _x( 'Uploaded to this til', 'Overrides the “Uploaded to this post”/”Uploaded to this page” phrase (used when viewing media attached to a post). Added in 4.4', 'til' ),
+			'filter_items_list'     => _x( 'Filter tils list', 'Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4', 'til' ),
+			'items_list_navigation' => _x( 'tils list navigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'til' ),
+			'items_list'            => _x( 'tils list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'til' ),
+		);     
+		$args = array(
+			'labels'             => $labels,
+			'description'        => 'til custom post type.',
+			'public'             => true,
 			'publicly_queryable' => true,
-			'exclude_from_search' => false,
-			'has_archive' => true,
-			'query_var' => true,
-			'can_export' => true,
-			'rewrite' => true,
-			'capability_type' => 'post'
-			);
-			register_post_type( 'services', $args );
+			'show_ui'            => true,
+			'show_in_menu'       => true,
+			'query_var'          => true,
+			'rewrite'            => array( 'slug' => 'til' ),
+			'capability_type'    => 'post',
+			'has_archive'        => true,
+			'hierarchical'       => false,
+			'menu_position'      => 20,
+			'supports'           => array( 'title', 'editor', 'author', 'thumbnail' ),
+			'taxonomies'         => array( 'category', 'post_tag' ),
+			'show_in_rest'       => true
+		);
+		  
+		register_post_type( 'til', $args );
 	}
 	add_action('init', 'custom_post_type');
 
