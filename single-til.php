@@ -15,7 +15,7 @@
 
 	<div class="content">
 		<h2>
-			<?php the_title(); ?>
+			<?php the_title(); ?> POSTTYPEYTEST
 		</h2>
 		<time datetime="<?php the_time( 'Y-m-d' ); ?>" pubdate>
 			<?php the_date(); ?> <?php the_time(); ?>
