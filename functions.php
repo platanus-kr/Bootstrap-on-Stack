@@ -193,54 +193,54 @@
 	add_action('init', 'disable_emojis');
 
 
-	function custom_post_type() {
-		$labels = array(
-			'name'                  => _x( 'TIL', 'Post type general name', 'til' ),
-			'singular_name'         => _x( 'til', 'Post type singular name', 'til' ),
-			'menu_name'             => _x( 'tils', 'Admin Menu text', 'til' ),
-			'name_admin_bar'        => _x( 'til', 'Add New on Toolbar', 'til' ),
-			'add_new'               => __( 'Add New', 'til' ),
-			'add_new_item'          => __( 'Add New til', 'til' ),
-			'new_item'              => __( 'New til', 'til' ),
-			'edit_item'             => __( 'Edit til', 'til' ),
-			'view_item'             => __( 'View til', 'til' ),
-			'all_items'             => __( 'All tils', 'til' ),
-			'search_items'          => __( 'Search tils', 'til' ),
-			'parent_item_colon'     => __( 'Parent tils:', 'til' ),
-			'not_found'             => __( 'No tils found.', 'til' ),
-			'not_found_in_trash'    => __( 'No tils found in Trash.', 'til' ),
-			'featured_image'        => _x( 'til Cover Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'til' ),
-			'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'til' ),
-			'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'til' ),
-			'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'til' ),
-			'archives'              => _x( 'til archives', 'The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4', 'til' ),
-			'insert_into_item'      => _x( 'Insert into til', 'Overrides the “Insert into post”/”Insert into page” phrase (used when inserting media into a post). Added in 4.4', 'til' ),
-			'uploaded_to_this_item' => _x( 'Uploaded to this til', 'Overrides the “Uploaded to this post”/”Uploaded to this page” phrase (used when viewing media attached to a post). Added in 4.4', 'til' ),
-			'filter_items_list'     => _x( 'Filter tils list', 'Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4', 'til' ),
-			'items_list_navigation' => _x( 'tils list navigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'til' ),
-			'items_list'            => _x( 'tils list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'til' ),
-		);     
-		$args = array(
-			'labels'             => $labels,
-			'description'        => 'til custom post type.',
-			'public'             => true,
-			'publicly_queryable' => true,
-			'show_ui'            => true,
-			'show_in_menu'       => true,
-			'query_var'          => true,
-			'rewrite'            => array( 'slug' => 'til' ),
-			'capability_type'    => 'post',
-			'has_archive'        => true,
-			'hierarchical'       => false,
-			'menu_position'      => 20,
-			'supports'           => array( 'title', 'editor', 'author', 'thumbnail' ),
-			'taxonomies'         => array( 'category', 'post_tag' ),
-			'show_in_rest'       => true
-		);
+	// function custom_post_type() {
+	// 	$labels = array(
+	// 		'name'                  => _x( 'TIL', 'Post type general name', 'til' ),
+	// 		'singular_name'         => _x( 'til', 'Post type singular name', 'til' ),
+	// 		'menu_name'             => _x( 'tils', 'Admin Menu text', 'til' ),
+	// 		'name_admin_bar'        => _x( 'til', 'Add New on Toolbar', 'til' ),
+	// 		'add_new'               => __( 'Add New', 'til' ),
+	// 		'add_new_item'          => __( 'Add New til', 'til' ),
+	// 		'new_item'              => __( 'New til', 'til' ),
+	// 		'edit_item'             => __( 'Edit til', 'til' ),
+	// 		'view_item'             => __( 'View til', 'til' ),
+	// 		'all_items'             => __( 'All tils', 'til' ),
+	// 		'search_items'          => __( 'Search tils', 'til' ),
+	// 		'parent_item_colon'     => __( 'Parent tils:', 'til' ),
+	// 		'not_found'             => __( 'No tils found.', 'til' ),
+	// 		'not_found_in_trash'    => __( 'No tils found in Trash.', 'til' ),
+	// 		'featured_image'        => _x( 'til Cover Image', 'Overrides the “Featured Image” phrase for this post type. Added in 4.3', 'til' ),
+	// 		'set_featured_image'    => _x( 'Set cover image', 'Overrides the “Set featured image” phrase for this post type. Added in 4.3', 'til' ),
+	// 		'remove_featured_image' => _x( 'Remove cover image', 'Overrides the “Remove featured image” phrase for this post type. Added in 4.3', 'til' ),
+	// 		'use_featured_image'    => _x( 'Use as cover image', 'Overrides the “Use as featured image” phrase for this post type. Added in 4.3', 'til' ),
+	// 		'archives'              => _x( 'til archives', 'The post type archive label used in nav menus. Default “Post Archives”. Added in 4.4', 'til' ),
+	// 		'insert_into_item'      => _x( 'Insert into til', 'Overrides the “Insert into post”/”Insert into page” phrase (used when inserting media into a post). Added in 4.4', 'til' ),
+	// 		'uploaded_to_this_item' => _x( 'Uploaded to this til', 'Overrides the “Uploaded to this post”/”Uploaded to this page” phrase (used when viewing media attached to a post). Added in 4.4', 'til' ),
+	// 		'filter_items_list'     => _x( 'Filter tils list', 'Screen reader text for the filter links heading on the post type listing screen. Default “Filter posts list”/”Filter pages list”. Added in 4.4', 'til' ),
+	// 		'items_list_navigation' => _x( 'tils list navigation', 'Screen reader text for the pagination heading on the post type listing screen. Default “Posts list navigation”/”Pages list navigation”. Added in 4.4', 'til' ),
+	// 		'items_list'            => _x( 'tils list', 'Screen reader text for the items list heading on the post type listing screen. Default “Posts list”/”Pages list”. Added in 4.4', 'til' ),
+	// 	);     
+	// 	$args = array(
+	// 		'labels'             => $labels,
+	// 		'description'        => 'til custom post type.',
+	// 		'public'             => true,
+	// 		'publicly_queryable' => true,
+	// 		'show_ui'            => true,
+	// 		'show_in_menu'       => true,
+	// 		'query_var'          => true,
+	// 		'rewrite'            => array( 'slug' => 'til' ),
+	// 		'capability_type'    => 'post',
+	// 		'has_archive'        => true,
+	// 		'hierarchical'       => false,
+	// 		'menu_position'      => 20,
+	// 		'supports'           => array( 'title', 'editor', 'author', 'thumbnail' ),
+	// 		'taxonomies'         => array( 'category', 'post_tag' ),
+	// 		'show_in_rest'       => true
+	// 	);
 		  
-		register_post_type( 'til', $args );
-	}
-	add_action('init', 'custom_post_type');
+	// 	register_post_type( 'til', $args );
+	// }
+	// add_action('init', 'custom_post_type');
 
 
 
